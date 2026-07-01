@@ -161,7 +161,7 @@ main { padding-top: 5rem; } /* под fixed-шапку */
   padding: .3rem .7rem; margin-bottom: var(--space-20);
 }
 .tab-panel__promise { margin-bottom: var(--space-40); max-width: 36ch; }
-.tab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-grid); margin-bottom: var(--space-40); }
+.tab-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-40); margin-bottom: var(--space-40); }
 .tab-block__label { font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin-bottom: var(--space-12); }
 .tab-block p { margin: 0 0 var(--space-12); color: var(--ink); }
 .check-list, .arte-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }

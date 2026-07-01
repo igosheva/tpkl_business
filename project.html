@@ -19,25 +19,21 @@
 .tf-kicker{display:inline-block;font-family:var(--tf-fmedium);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tf-muted);margin-bottom:14px}
 .tf-sec-title{letter-spacing:-.02em}
 
-/* ---- КЕЙСЫ: editorial index ---- */
-.tf-cases{list-style:none;margin:0;padding:0;border-top:1px solid var(--tf-muted)}
-.tf-case{display:grid;grid-template-columns:minmax(72px,9%) 1fr;gap:clamp(20px,3vw,48px);padding:clamp(24px,2.6vw,38px) 0;border-bottom:1px solid var(--tf-muted)}
-.tf-case__idx{font-family:var(--tf-fdisplay);font-size:clamp(2rem,3.3vw,3rem);line-height:1;color:var(--tf-muted);letter-spacing:-.02em}
-.tf-case__head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:18px}
-.tf-case__name{font-family:var(--tf-fdisplay);font-size:var(--h3,1.5rem);letter-spacing:-.02em;margin:0}
-.tf-case__meta{font-family:var(--tf-fmedium);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--tf-muted)}
-.tf-case__flow{margin:0 0 18px;display:grid;gap:10px}
-.tf-case__flow>div{display:grid;grid-template-columns:minmax(84px,13%) 1fr;gap:16px}
-.tf-case__flow dt{font-family:var(--tf-fmedium);font-size:.8125rem;letter-spacing:.04em;text-transform:uppercase;color:var(--tf-muted);margin:0}
-.tf-case__flow dd{margin:0;color:var(--tf-ink)}
-.tf-case__result{margin:0 0 16px;padding-left:16px;border-left:2px solid var(--tf-coral);font-family:var(--tf-fdisplay);font-size:1.125rem;letter-spacing:-.01em}
-.tf-case__link{font-family:var(--tf-fmedium);color:var(--tf-ink);text-decoration:none;border-bottom:1px solid var(--tf-ink);padding-bottom:2px;transition:opacity .2s}
+/* ---- КЕЙСЫ: компактные карточки (3 в ряд), единый стиль с отзывами ---- */
+.tf-cases{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,1.5vw,24px)}
+.tf-case{display:flex;flex-direction:column;background:var(--tf-white);border:1px solid #e6e6e6;border-radius:5px;padding:clamp(20px,1.8vw,26px)}
+.tf-case__meta{font-family:var(--tf-fmedium);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--tf-muted);margin-bottom:10px}
+.tf-case__name{font-family:var(--tf-fdisplay);font-size:1.375rem;line-height:1.05;letter-spacing:-.02em;margin:0 0 14px}
+/* Результат — главный и единственный смысловой элемент карточки: чернила, коралловый лейбл */
+.tf-case__result{margin:0 0 24px;font-family:var(--tf-fmedium);font-size:1.0625rem;line-height:1.3;letter-spacing:-.01em;color:var(--tf-ink)}
+.tf-case__result-label{display:block;font-family:var(--tf-fmedium);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tf-coral);margin-bottom:8px}
+.tf-case__link{margin-top:auto;font-family:var(--tf-fmedium);font-size:.9rem;color:var(--tf-ink);text-decoration:none;border-bottom:1px solid var(--tf-ink);padding-bottom:2px;align-self:flex-start;transition:opacity .2s}
 .tf-case__link:hover{opacity:.55}
+.tf-cases-more{display:flex;justify-content:center;margin-top:clamp(28px,3.2vw,44px)}
 
-/* ---- ОТЗЫВЫ: pull-quote grid ---- */
-.tf-reviews{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--tf-muted)}
-.tf-review{display:flex;flex-direction:column;padding:clamp(24px,2vw,32px);border-bottom:1px solid var(--tf-muted);border-right:1px solid var(--tf-muted)}
-.tf-review:nth-child(3n){border-right:none}
+/* ---- ОТЗЫВЫ: белые карточки на сером — каждый отзыв отдельным блоком ---- */
+.tf-reviews{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,1.5vw,24px)}
+.tf-review{display:flex;flex-direction:column;background:var(--tf-white);border:1px solid #e6e6e6;border-radius:5px;padding:clamp(24px,2.2vw,34px)}
 .tf-review__quote{font-family:var(--tf-fdisplay);font-size:clamp(1.25rem,1.6vw,1.5rem);line-height:1.15;letter-spacing:-.02em;margin:0 0 auto}
 .tf-review__service{display:inline-block;font-family:var(--tf-fmedium);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--tf-muted);margin:28px 0 18px}
 .tf-review__foot{display:flex;align-items:center;gap:14px;padding-top:18px;border-top:1px solid var(--tf-muted)}
@@ -58,16 +54,12 @@
 @keyframes tf-rise{to{opacity:1;transform:none}}
 
 @media (max-width:991px){
+  .tf-cases{grid-template-columns:1fr 1fr}
   .tf-reviews{grid-template-columns:1fr 1fr}
-  .tf-review:nth-child(3n){border-right:1px solid var(--tf-muted)}
-  .tf-review:nth-child(2n){border-right:none}
 }
 @media (max-width:767px){
-  .tf-case{grid-template-columns:1fr;gap:12px}
-  .tf-case__idx{font-size:1.5rem}
-  .tf-case__flow>div{grid-template-columns:1fr;gap:2px}
+  .tf-cases{grid-template-columns:1fr}
   .tf-reviews{grid-template-columns:1fr}
-  .tf-review{border-right:none!important}
 }
 </style>
 </head>
@@ -281,7 +273,8 @@
         <!-- Таб 04 — Прокачать команду руководителей -->
         <div class="tab-panel" id="t4" role="tabpanel">
           <span class="tab-panel__meta">Программа-интенсив под задачу бизнеса</span>
-          <h3 class="title-h3 tab-panel__promise">Команда руководителей возьмёт ответственность — и бизнес перестанет упираться в собственников.</h3>
+          <h3 class="title-h3 tab-panel__promise">Руководители возьмут управление на себя — по единому стандарту, а не по наитию.</h3>
+          <p class="section-head__bridge"><em>Программу собираем под вашу конкретную задачу по итогам бесплатной диагностики — это не типовой курс.</em></p>
           <div class="tab-grid">
             <div class="tab-block">
               <div class="tab-block__label">Когда это нужно</div>
@@ -296,9 +289,10 @@
             <div class="tab-block">
               <div class="tab-block__label">Бизнес получает</div>
               <ul class="arte-list">
-                <li>Управленческую команду, способную вести бизнес без ручного контроля собственников</li>
-                <li>Общий управленческий язык и единые правила работы между подразделениями</li>
-                <li>Управленческие практики, внедрённые в ежедневную работу, а не «знания после курса»</li>
+                <li>Управленческую команду, которая ведёт бизнес без ручного контроля собственников</li>
+                <li>Единый управленческий стандарт (цели, решения, 1-on-1), внедрённый в ежедневную работу, — а не «знания после курса»</li>
+                <li>Замер управленческой зрелости команды до и после</li>
+                <li>Доступ к закрытой контент-библиотеке по 9 темам управления — чтобы команда росла и после интенсива</li>
                 <li>Сопровождение внедрения — 3 месяца</li>
               </ul>
             </div>
@@ -343,52 +337,25 @@
       </div>
       <ol class="tf-cases">
         <li class="tf-case">
-          <div class="tf-case__idx">01</div>
-          <div class="tf-case__body">
-            <div class="tf-case__head">
-              <h3 class="tf-case__name">Resume.io</h3>
-              <span class="tf-case__meta">SaaS · &lt;100 · оргструктура</span>
-            </div>
-            <dl class="tf-case__flow">
-              <div><dt>Было</dt><dd>Основатели тонут в операционке, команда не готова к росту.</dd></div>
-              <div><dt>Сделали</dt><dd>Новую оргструктуру, которая позволила основателям выйти из операционки и подготовила компанию к масштабированию.</dd></div>
-            </dl>
-            <p class="tf-case__result">Команда выросла с 8 до 30+ человек, а компанию купил холдинг Talent.Inc</p>
-            <a class="tf-case__link" href="https://www.typical.company/knowledgebase/kak-izmenit-orgstrukturu-tak-chtoby-komandy-zarabotali-po-principu-samostoyatelnyh-produktov-kompaniya-mogla-legko-masshtabirovatsya-a-osnovateli-vyshli-iz-operacionki" target="_blank" rel="noopener">Читать кейс →</a>
-          </div>
+          <span class="tf-case__meta">SaaS · &lt;100 · оргструктура</span>
+          <h3 class="tf-case__name">Resume.io</h3>
+          <p class="tf-case__result"><span class="tf-case__result-label">Результат</span>Основатели вышли из операционки, команда выросла с 8 до 30+, компанию купил холдинг Talent.Inc.</p>
+          <a class="tf-case__link" href="https://www.typical.company/knowledgebase/kak-izmenit-orgstrukturu-tak-chtoby-komandy-zarabotali-po-principu-samostoyatelnyh-produktov-kompaniya-mogla-legko-masshtabirovatsya-a-osnovateli-vyshli-iz-operacionki" target="_blank" rel="noopener">Читать кейс →</a>
         </li>
         <li class="tf-case">
-          <div class="tf-case__idx">02</div>
-          <div class="tf-case__body">
-            <div class="tf-case__head">
-              <h3 class="tf-case__name">12STOREEZ</h3>
-              <span class="tf-case__meta">Retail · &gt;1000 · продуктовый подход</span>
-            </div>
-            <dl class="tf-case__flow">
-              <div><dt>Было</dt><dd>Непонятно, во что вкладываться — в обучение людей или в процессы.</dd></div>
-              <div><dt>Сделали</dt><dd>Аудит продуктового подхода в создании коллекций и план его ускорения через управленческие процессы.</dd></div>
-            </dl>
-            <p class="tf-case__result">Команда согласилась с 99% выводов аудита и получила план внедрения</p>
-            <a class="tf-case__link" href="https://www.typical.company/knowledgebase/kogda-luchshe-investirovat-v-processy-a-ne-v-obuchenie" target="_blank" rel="noopener">Читать кейс →</a>
-          </div>
+          <span class="tf-case__meta">Retail · &gt;1000 · продуктовый подход</span>
+          <h3 class="tf-case__name">12STOREEZ</h3>
+          <p class="tf-case__result"><span class="tf-case__result-label">Результат</span>Не потратили бюджет на преждевременное обучение — за год устранили корень: роли, оргструктуру и рассинхрон в стратегии.</p>
+          <a class="tf-case__link" href="https://www.typical.company/knowledgebase/kogda-luchshe-investirovat-v-processy-a-ne-v-obuchenie" target="_blank" rel="noopener">Читать кейс →</a>
         </li>
         <li class="tf-case">
-          <div class="tf-case__idx">03</div>
-          <div class="tf-case__body">
-            <div class="tf-case__head">
-              <h3 class="tf-case__name">Райффайзенбанк</h3>
-              <span class="tf-case__meta">Finance · &gt;1000 · оценка и развитие</span>
-            </div>
-            <dl class="tf-case__flow">
-              <div><dt>Задача</dt><dd>Выбрать преемников на C-level и спланировать развитие.</dd></div>
-              <div><dt>Сделали</dt><dd>Оценку и персональные планы развития кандидатов-преемников.</dd></div>
-            </dl>
-            <p class="tf-case__result">Закрыли задачу за 1 месяц без отступления от методологии</p>
-            <a class="tf-case__link" href="https://www.typical.company/knowledgebase/ocenka-i-razrabotka-planov-razvitiya-kak-organizovat-process" target="_blank" rel="noopener">Читать кейс →</a>
-          </div>
+          <span class="tf-case__meta">Finance · &gt;1000 · оценка и развитие</span>
+          <h3 class="tf-case__name">Райффайзенбанк</h3>
+          <p class="tf-case__result"><span class="tf-case__result-label">Результат</span>Объективная картина навыков продакт-менеджеров и персональные планы развития под цели банка — за месяц.</p>
+          <a class="tf-case__link" href="https://www.typical.company/knowledgebase/ocenka-i-razrabotka-planov-razvitiya-kak-organizovat-process" target="_blank" rel="noopener">Читать кейс →</a>
         </li>
       </ol>
-      <div class="tab-actions">
+      <div class="tf-cases-more">
         <a class="n-button n-button--big n-button--outline" href="https://www.typical.company/cases" target="_blank" rel="noopener">Смотреть все кейсы</a>
       </div>
     </div>
@@ -464,7 +431,7 @@
 
         <!-- Отзыв 1 — КОР -->
         <li class="tf-review">
-          <p class="tf-review__quote">«За три месяца решили проблемы, которые не могли решить 2–3 года»</p>
+          <p class="tf-review__quote">«Найм и перевод сотрудников превратился из непредсказуемого искусства в понятный процесс»</p>
           <div class="tf-review__service">Система управления бизнесом</div>
           <div class="tf-review__foot">
             <div class="tf-review__photo">
@@ -480,7 +447,7 @@
 
         <!-- Отзыв 2 — АТОМ -->
         <li class="tf-review">
-          <p class="tf-review__quote">«Теперь у меня есть стратегия, цели, структура и уверенность, что мы идём в правильном направлении»</p>
+          <p class="tf-review__quote">«Сформировали стратегию с нуля там, где её никогда не было, и поставили ясные цели на 2024 год»</p>
           <div class="tf-review__service">Система управления и найма</div>
           <div class="tf-review__foot">
             <div class="tf-review__photo"><img loading="lazy" src="assets/reviews/anton-hristenko.webp" alt="Антон Христенко"></div>
@@ -494,7 +461,7 @@
 
         <!-- Отзыв 3 — Restik -->
         <li class="tf-review">
-          <p class="tf-review__quote">«Перестал избегать управленческую работу»</p>
+          <p class="tf-review__quote">«Мы снова начали расти по выручке и даже вышли в прибыль — благодаря реорганизации команды и оргструктуре»</p>
           <div class="tf-review__service">Роль руководителя и зоны ответственности</div>
           <div class="tf-review__foot">
             <div class="tf-review__photo"><img loading="lazy" src="assets/reviews/oleg-suzhaev.webp" alt="Олег Сужаев"></div>
