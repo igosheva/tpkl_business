@@ -1,0 +1,27 @@
+/* TYPICAL — Suisse Int'l (боевые файлы Webflow CDN) */
+
+@font-face {
+  font-family: "Suisseintl book";
+  src: url("https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/612e8a3726678e3b08cb5a46_SuisseIntl-Book.otf") format("opentype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Suisseintl Regular";
+  src: url("https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/64899c60f055679f8a3924b5_SuisseIntl-Regular.woff2") format("woff2"),
+       url("https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/64899c4314d2fc07ffdd8428_SuisseIntl-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Suisseintl Medium";
+  src: url("https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/6490ab407630935d128390b5_SuisseIntl-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Suisseintl bold";
+  src: url("https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/6429f2cc8fbcbec8dde1072b_SuisseIntl-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}

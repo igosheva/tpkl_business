@@ -1,0 +1,17 @@
+# Render Blueprint — статический сайт TYPICAL
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: tpkl-business
+    runtime: static
+    # Публикуем корень репозитория как есть
+    staticPublishPath: .
+    # Корень / отдаёт project.html (index.html в проекте нет)
+    routes:
+      - type: rewrite
+        source: /
+        destination: /project.html
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff

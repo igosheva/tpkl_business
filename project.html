@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Проекты — TYPICAL</title>
+<meta name="description" content="Наводим порядок в управлении компанией — от диагностики до системы, которая держит рост. Отвечаем за результат целиком, от проектирования до внедрения.">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/project.css">
+<style id="tf-cases-reviews">
+:root{
+  --tf-ink:var(--ink,#1F2630);--tf-white:var(--white,#fff);--tf-gray:var(--gray,#F2F2F2);
+  --tf-muted:var(--muted,#8F959D);--tf-coral:var(--coral,#FF743D);
+  --tf-fdisplay:"Suisseintl book","Suisseintl Regular",sans-serif;
+  --tf-fbody:"Suisseintl Regular",sans-serif;--tf-fmedium:"Suisseintl Medium",sans-serif;
+}
+.tf-sec-head{margin-bottom:clamp(32px,3.3vw,48px)}
+.tf-kicker{display:inline-block;font-family:var(--tf-fmedium);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tf-muted);margin-bottom:14px}
+.tf-sec-title{letter-spacing:-.02em}
+
+/* ---- КЕЙСЫ: editorial index ---- */
+.tf-cases{list-style:none;margin:0;padding:0;border-top:1px solid var(--tf-muted)}
+.tf-case{display:grid;grid-template-columns:minmax(72px,9%) 1fr;gap:clamp(20px,3vw,48px);padding:clamp(24px,2.6vw,38px) 0;border-bottom:1px solid var(--tf-muted)}
+.tf-case__idx{font-family:var(--tf-fdisplay);font-size:clamp(2rem,3.3vw,3rem);line-height:1;color:var(--tf-muted);letter-spacing:-.02em}
+.tf-case__head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.tf-case__name{font-family:var(--tf-fdisplay);font-size:var(--h3,1.5rem);letter-spacing:-.02em;margin:0}
+.tf-case__meta{font-family:var(--tf-fmedium);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--tf-muted)}
+.tf-case__flow{margin:0 0 18px;display:grid;gap:10px}
+.tf-case__flow>div{display:grid;grid-template-columns:minmax(84px,13%) 1fr;gap:16px}
+.tf-case__flow dt{font-family:var(--tf-fmedium);font-size:.8125rem;letter-spacing:.04em;text-transform:uppercase;color:var(--tf-muted);margin:0}
+.tf-case__flow dd{margin:0;color:var(--tf-ink)}
+.tf-case__result{margin:0 0 16px;padding-left:16px;border-left:2px solid var(--tf-coral);font-family:var(--tf-fdisplay);font-size:1.125rem;letter-spacing:-.01em}
+.tf-case__link{font-family:var(--tf-fmedium);color:var(--tf-ink);text-decoration:none;border-bottom:1px solid var(--tf-ink);padding-bottom:2px;transition:opacity .2s}
+.tf-case__link:hover{opacity:.55}
+
+/* ---- ОТЗЫВЫ: pull-quote grid ---- */
+.tf-reviews{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--tf-muted)}
+.tf-review{display:flex;flex-direction:column;padding:clamp(24px,2vw,32px);border-bottom:1px solid var(--tf-muted);border-right:1px solid var(--tf-muted)}
+.tf-review:nth-child(3n){border-right:none}
+.tf-review__quote{font-family:var(--tf-fdisplay);font-size:clamp(1.25rem,1.6vw,1.5rem);line-height:1.15;letter-spacing:-.02em;margin:0 0 auto}
+.tf-review__service{display:inline-block;font-family:var(--tf-fmedium);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--tf-muted);margin:28px 0 18px}
+.tf-review__foot{display:flex;align-items:center;gap:14px;padding-top:18px;border-top:1px solid var(--tf-muted)}
+.tf-review__photo{width:44px;height:44px;flex:0 0 44px;border-radius:50%;overflow:hidden;background:var(--tf-gray)}
+.tf-review__photo img{width:100%;height:100%;object-fit:cover;display:block}
+.tf-review__person{display:flex;flex-direction:column}
+.tf-review__name{font-family:var(--tf-fmedium)}
+.tf-review__role{font-size:.8125rem;color:var(--tf-muted)}
+.tf-review__link{margin-top:20px;font-family:var(--tf-fmedium);font-size:.9375rem;color:var(--tf-ink);text-decoration:none;border-bottom:1px solid var(--tf-ink);padding-bottom:2px;align-self:flex-start;transition:opacity .2s}
+.tf-review__link:hover{opacity:.55}
+
+/* motion — orchestrated, restrained */
+@media (prefers-reduced-motion:no-preference){
+  .tf-case,.tf-review{opacity:0;transform:translateY(12px);animation:tf-rise .6s cubic-bezier(.2,.7,.2,1) forwards}
+  .tf-case:nth-child(2),.tf-review:nth-child(2){animation-delay:.08s}
+  .tf-case:nth-child(3),.tf-review:nth-child(3){animation-delay:.16s}
+}
+@keyframes tf-rise{to{opacity:1;transform:none}}
+
+@media (max-width:991px){
+  .tf-reviews{grid-template-columns:1fr 1fr}
+  .tf-review:nth-child(3n){border-right:1px solid var(--tf-muted)}
+  .tf-review:nth-child(2n){border-right:none}
+}
+@media (max-width:767px){
+  .tf-case{grid-template-columns:1fr;gap:12px}
+  .tf-case__idx{font-size:1.5rem}
+  .tf-case__flow>div{grid-template-columns:1fr;gap:2px}
+  .tf-reviews{grid-template-columns:1fr}
+  .tf-review{border-right:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ======== ШАПКА ======== -->
+<header class="page-header">
+  <div class="page-header__container">
+    <a href="https://www.typical.company/" class="brand-logo" aria-label="TYPICAL">
+      <svg viewBox="0 0 194 31" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M52.5561 25.8372C52.9824 25.5658 53.4039 25.2898 53.816 24.9857L62.4361 18.6601V30.1229C62.9333 30.1697 63.431 30.1977 63.9374 30.1977C64.4921 30.1977 65.0412 30.1697 65.5812 30.1135V18.618C69.0147 21.1398 72.4488 23.6569 75.8829 26.1788C76.2331 25.7904 76.6029 25.3413 76.9672 24.8359C77.261 24.4242 77.5212 24.0265 77.7441 23.6522C74.7698 21.4673 71.7906 19.287 68.8163 17.102H79.8992C79.9512 16.5874 79.9794 16.0681 79.9794 15.5394C79.9794 15.0107 79.9512 14.4914 79.8992 13.9767H68.8163L77.73 7.43586C77.46 6.98671 77.138 6.50013 76.7639 5.99951C76.4608 5.59713 76.1572 5.23687 75.8688 4.91404L65.5861 12.4608V0.983936C65.0461 0.927791 64.4963 0.899719 63.9423 0.899719C63.4353 0.899719 62.9333 0.927791 62.441 0.974578V12.4233L53.8208 6.09775C53.4086 5.79364 52.9871 5.51759 52.5609 5.24623C49.3496 3.21568 46.4367 2.45772 45.4279 2.21444C44.0828 1.89161 42.2308 1.57813 40 1.58281C40 2.62616 40 3.67419 40 4.71754C43.5002 4.70818 47.0051 5.61117 50.15 7.44523C50.4058 7.59492 50.6616 7.74933 50.9126 7.91311C51.2631 8.13768 51.6136 8.36225 51.9499 8.61492L59.2628 13.9814H47.9003V17.1068H59.2628L51.9499 22.4732C51.6088 22.7212 51.2583 22.9505 50.9126 23.175C50.6616 23.3341 50.4058 23.4931 50.15 23.6429C47.0051 25.4769 43.5002 26.3799 40 26.3706V29.5194C44.4001 29.5146 48.7339 28.2841 52.5561 25.8372Z" fill="currentColor"/><path d="M27.4236 25.8372C26.9973 25.5658 26.5758 25.2898 26.1637 24.9857L17.5435 18.6601V30.1276C17.0462 30.1743 16.5489 30.2024 16.0421 30.2024C15.488 30.2024 14.9385 30.1743 14.3986 30.1182V18.618C10.9647 21.1398 7.53086 23.6569 4.09696 26.1788C3.74647 25.7904 3.37703 25.3413 3.01233 24.8359C2.71867 24.4242 2.45817 24.0265 2.23557 23.6522C5.21001 21.4673 8.1892 19.287 11.1636 17.102H0.0805181C0.0284182 16.592 0 16.0727 0 15.5441C0 15.0153 0.0284182 14.496 0.0805181 13.9814H11.1636L2.24977 7.43586C2.51975 6.98671 2.84182 6.50012 3.21599 5.9995C3.51912 5.59713 3.82225 5.23687 4.11117 4.91404L14.3938 12.4608V0.983936C14.9385 0.927791 15.488 0.899719 16.0421 0.899719C16.5489 0.899719 17.051 0.927791 17.5435 0.974578V12.4233L26.1637 6.09775C26.5758 5.79364 26.9973 5.5176 27.4236 5.24623C30.6348 3.21568 33.5477 2.45772 34.5566 2.21444C35.9017 1.89161 37.7536 1.57813 39.9844 1.58281C39.9844 2.62616 39.9844 3.67419 39.9844 4.71754C36.489 4.71286 32.9841 5.61117 29.8391 7.44523C29.5834 7.59492 29.3276 7.74933 29.0765 7.91311C28.7261 8.13768 28.3756 8.36225 28.0393 8.61492L20.7216 13.9814H32.0841V17.1068H20.7216L28.0346 22.4732C28.3756 22.7212 28.7261 22.9505 29.0718 23.175C29.3229 23.3341 29.5786 23.4932 29.8344 23.6429C32.9794 25.4769 36.4843 26.3799 39.9844 26.3706V29.5193C35.5796 29.5146 31.2459 28.2842 27.4236 25.8372Z" fill="currentColor"/><path d="M95.4129 16.5736H90.3594V13.977H103.73V16.5736H98.6528V30.2167H95.4129V16.5736Z" fill="currentColor"/><path d="M108.258 13.9764L112.085 20.7651L115.983 13.9764H119.678L113.624 23.9467V30.2208H110.385V23.9045L104.469 13.981H108.258V13.9764Z" fill="currentColor"/><path d="M126.88 13.9769C130.257 13.9769 134.108 14.4494 134.108 19.3527C134.108 23.498 130.754 24.5039 126.97 24.5039H124.498V30.2166H121.258V13.9769H126.88ZM124.502 16.4846V22.0195H127.178C129.196 22.0195 130.783 21.5282 130.783 19.3761C130.783 16.7092 128.722 16.4846 126.956 16.4846H124.502Z" fill="currentColor"/><path d="M164.359 24.8877C163.928 28.1581 161.186 30.5114 157.245 30.5114C152.371 30.5114 149.562 27.1942 149.562 22.0196C149.562 16.8871 152.556 13.6868 157.335 13.6868C161.186 13.6868 163.819 15.8578 164.359 19.2452H161.276C160.665 16.9806 159.121 16.2414 157.312 16.2414C154.82 16.2414 152.916 18.2579 152.916 22.0196C152.916 25.8936 154.82 27.9569 157.198 27.9569C159.145 27.9569 160.755 27.0819 161.276 24.8877H164.359Z" fill="currentColor"/><path d="M171.01 13.9769H174.273L180.416 30.2213H176.902L175.746 26.9275H169.357L168.201 30.2213H164.891L171.01 13.9769ZM170.285 24.3027H174.818L172.554 17.8929L170.285 24.3027Z" fill="currentColor"/><path d="M185.474 27.6195H193.474V30.2161H182.234V13.9764H185.474V27.6195Z" fill="currentColor"/><path d="M148.083 27.6106H143.464V16.5735H148.083V13.9769H135.578V16.5735H140.196V27.6106H135.578V30.2072H148.083V27.6106Z" fill="currentColor"/></svg>
+    </a>
+    <nav class="main-nav">
+      <a href="#" class="main-nav__link">Бизнесу</a>
+      <div class="main-nav__item has-dropdown">
+        <a href="#" class="main-nav__link main-nav__link--caret" aria-haspopup="true" aria-expanded="false">Руководителям</a>
+        <div class="dropdown" role="menu">
+          <a href="#" role="menuitem" class="dropdown__link">Группа руководителей</a>
+          <a href="#" role="menuitem" class="dropdown__link">Обучение</a>
+        </div>
+      </div>
+      <a href="https://www.typical.company/cases" class="main-nav__link">Опыт и кейсы</a>
+      <a href="#" class="main-nav__link">Отзывы</a>
+      <a href="#" class="main-nav__link">Исследования и публикации</a>
+      <a href="https://www.typical.company/knowledgebase" class="main-nav__link">База знаний</a>
+    </nav>
+    <button class="n-button n-button--big header-cta" data-open-modal>Оставить заявку</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ======== 1. HERO ======== -->
+  <section class="page-section hero">
+    <div class="n-container">
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <h1 class="title-h1 hero__title">Наводим порядок в управлении — чтобы бизнес рос.</h1>
+          <p class="lead hero__sub">Разбираемся в причинах проблем, предлагаем решение и помогаем внедрить изменения — отвечаем за результат целиком, от проектирования до внедрения.</p>
+          <button class="n-button n-button--big" data-open-modal>Оставить заявку</button>
+        </div>
+        <div class="hero__visual" aria-hidden="true">
+          <svg viewBox="0 0 80 31" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M52.5561 25.8372C52.9824 25.5658 53.4039 25.2898 53.816 24.9857L62.4361 18.6601V30.1229C62.9333 30.1697 63.431 30.1977 63.9374 30.1977C64.4921 30.1977 65.0412 30.1697 65.5812 30.1135V18.618C69.0147 21.1398 72.4488 23.6569 75.8829 26.1788C76.2331 25.7904 76.6029 25.3413 76.9672 24.8359C77.261 24.4242 77.5212 24.0265 77.7441 23.6522C74.7698 21.4673 71.7906 19.287 68.8163 17.102H79.8992C79.9512 16.5874 79.9794 16.0681 79.9794 15.5394C79.9794 15.0107 79.9512 14.4914 79.8992 13.9767H68.8163L77.73 7.43586C77.46 6.98671 77.138 6.50013 76.7639 5.99951C76.4608 5.59713 76.1572 5.23687 75.8688 4.91404L65.5861 12.4608V0.983936C65.0461 0.927791 64.4963 0.899719 63.9423 0.899719C63.4353 0.899719 62.9333 0.927791 62.441 0.974578V12.4233L53.8208 6.09775C53.4086 5.79364 52.9871 5.51759 52.5609 5.24623C49.3496 3.21568 46.4367 2.45772 45.4279 2.21444C44.0828 1.89161 42.2308 1.57813 40 1.58281C40 2.62616 40 3.67419 40 4.71754C43.5002 4.70818 47.0051 5.61117 50.15 7.44523C50.4058 7.59492 50.6616 7.74933 50.9126 7.91311C51.2631 8.13768 51.6136 8.36225 51.9499 8.61492L59.2628 13.9814H47.9003V17.1068H59.2628L51.9499 22.4732C51.6088 22.7212 51.2583 22.9505 50.9126 23.175C50.6616 23.3341 50.4058 23.4931 50.15 23.6429C47.0051 25.4769 43.5002 26.3799 40 26.3706V29.5194C44.4001 29.5146 48.7339 28.2841 52.5561 25.8372Z" fill="currentColor"/><path d="M27.4236 25.8372C26.9973 25.5658 26.5758 25.2898 26.1637 24.9857L17.5435 18.6601V30.1276C17.0462 30.1743 16.5489 30.2024 16.0421 30.2024C15.488 30.2024 14.9385 30.1743 14.3986 30.1182V18.618C10.9647 21.1398 7.53086 23.6569 4.09696 26.1788C3.74647 25.7904 3.37703 25.3413 3.01233 24.8359C2.71867 24.4242 2.45817 24.0265 2.23557 23.6522C5.21001 21.4673 8.1892 19.287 11.1636 17.102H0.0805181C0.0284182 16.592 0 16.0727 0 15.5441C0 15.0153 0.0284182 14.496 0.0805181 13.9814H11.1636L2.24977 7.43586C2.51975 6.98671 2.84182 6.50012 3.21599 5.9995C3.51912 5.59713 3.82225 5.23687 4.11117 4.91404L14.3938 12.4608V0.983936C14.9385 0.927791 15.488 0.899719 16.0421 0.899719C16.5489 0.899719 17.051 0.927791 17.5435 0.974578V12.4233L26.1637 6.09775C26.5758 5.79364 26.9973 5.5176 27.4236 5.24623C30.6348 3.21568 33.5477 2.45772 34.5566 2.21444C35.9017 1.89161 37.7536 1.57813 39.9844 1.58281C39.9844 2.62616 39.9844 3.67419 39.9844 4.71754C36.489 4.71286 32.9841 5.61117 29.8391 7.44523C29.5834 7.59492 29.3276 7.74933 29.0765 7.91311C28.7261 8.13768 28.3756 8.36225 28.0393 8.61492L20.7216 13.9814H32.0841V17.1068H20.7216L28.0346 22.4732C28.3756 22.7212 28.7261 22.9505 29.0718 23.175C29.3229 23.3341 29.5786 23.4932 29.8344 23.6429C32.9794 25.4769 36.4843 26.3799 39.9844 26.3706V29.5193C35.5796 29.5146 31.2459 28.2842 27.4236 25.8372Z" fill="currentColor"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 2. ПОЛОСА ДОКАЗАТЕЛЬСТВ ======== -->
+  <section class="page-section proof">
+    <div class="n-container">
+      <div class="proof__stats">
+        <div class="proof__stat">
+          <div class="proof__num">6<span class="proof__suf">+</span></div>
+          <div class="proof__label">лет практики</div>
+        </div>
+        <div class="proof__stat">
+          <div class="proof__num">20<span class="proof__suf">+</span></div>
+          <div class="proof__label">бизнес-кейсов<br>в 14 индустриях</div>
+        </div>
+        <div class="proof__stat">
+          <div class="proof__num">200<span class="proof__suf">+</span></div>
+          <div class="proof__label">человек прошли<br>через наши программы</div>
+        </div>
+      </div>
+    </div><!-- /.n-container -->
+
+    <div class="logo-marquee">
+        <div class="logo-marquee__track">
+          <!-- Набор 1 -->
+          <div class="logo-partners__item"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff170ceb82e80170bde06e_resume-io-logo.svg" alt="Resume.io"></div>
+          <div class="logo-partners__item"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff175dc79696fb8f52f698_raiffeisen-logo.svg" alt="Райффайзенбанк"></div>
+          <div class="logo-partners__item"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff178996e9ee83f52f046e_emex-logo.svg" alt="EMEX"></div>
+          <div class="logo-partners__item"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff17aa1c5144ec97e1383c_Frame%2012344648.svg" alt="PINKMAN"></div>
+          <div class="logo-partners__item"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff1878e11ca53c0cbc0bc1_12Storeez%20(1).webp" alt="12STOREEZ"></div>
+          <div class="logo-partners__item"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff17c7b35616cdd47187c0_ati-su-logo.svg" alt="Ati.su"></div>
+          <div class="logo-partners__item"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff180f88d8e714a83559e8_kor-logo-png.webp" alt="КОР"></div>
+          <div class="logo-partners__item"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff18319a20325b181bf659_rusprofile-logo-png.webp" alt="Rusprofile"></div>
+          <div class="logo-partners__item"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff17dff456069336065a12_creonit-logo.svg" alt="Creonit"></div>
+          <div class="logo-partners__item"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/691322125e21871c81105b02_Frame%2012345364.svg" alt="Spektr"></div>
+          <div class="logo-partners__item"><span class="logo-partners__text">Restik</span></div>
+          <div class="logo-partners__item"><span class="logo-partners__text">Феникс</span></div>
+          <!-- Набор 2 (дубль для бесшовного цикла) -->
+          <div class="logo-partners__item" aria-hidden="true"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff170ceb82e80170bde06e_resume-io-logo.svg" alt=""></div>
+          <div class="logo-partners__item" aria-hidden="true"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff175dc79696fb8f52f698_raiffeisen-logo.svg" alt=""></div>
+          <div class="logo-partners__item" aria-hidden="true"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff178996e9ee83f52f046e_emex-logo.svg" alt=""></div>
+          <div class="logo-partners__item" aria-hidden="true"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff17aa1c5144ec97e1383c_Frame%2012344648.svg" alt=""></div>
+          <div class="logo-partners__item" aria-hidden="true"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff1878e11ca53c0cbc0bc1_12Storeez%20(1).webp" alt=""></div>
+          <div class="logo-partners__item" aria-hidden="true"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff17c7b35616cdd47187c0_ati-su-logo.svg" alt=""></div>
+          <div class="logo-partners__item" aria-hidden="true"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff180f88d8e714a83559e8_kor-logo-png.webp" alt=""></div>
+          <div class="logo-partners__item" aria-hidden="true"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff18319a20325b181bf659_rusprofile-logo-png.webp" alt=""></div>
+          <div class="logo-partners__item" aria-hidden="true"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/68ff17dff456069336065a12_creonit-logo.svg" alt=""></div>
+          <div class="logo-partners__item" aria-hidden="true"><img class="logo-partners__image" loading="lazy" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/691322125e21871c81105b02_Frame%2012345364.svg" alt=""></div>
+          <div class="logo-partners__item" aria-hidden="true"><span class="logo-partners__text">Restik</span></div>
+          <div class="logo-partners__item" aria-hidden="true"><span class="logo-partners__text">Феникс</span></div>
+        </div>
+      </div>
+  </section>
+
+  <!-- ======== 3. КАКУЮ ЗАДАЧУ НУЖНО РЕШИТЬ? ======== -->
+  <section class="page-section">
+    <div class="n-container">
+      <div class="section-head page-section__title">
+        <h2 class="title-h2 d-mb-20">Какую задачу нужно решить?</h2>
+        <p class="lead">Выберите свой запрос — увидите, как мы работаем и что получите на выходе.</p>
+      </div>
+
+      <div class="tabs tabs--vertical" data-tabs>
+        <div class="tabs__nav" role="tablist">
+          <button class="tab-btn is-active" role="tab" data-tab="t1"><span class="num">01</span><span class="tab-btn__label">Понять, что мешает бизнесу расти</span><span class="tab-btn__arrow" aria-hidden="true">→</span></button>
+          <button class="tab-btn" role="tab" data-tab="t2"><span class="num">02</span><span class="tab-btn__label">Перевести бизнес из ручного управления в систему</span><span class="tab-btn__arrow" aria-hidden="true">→</span></button>
+          <button class="tab-btn" role="tab" data-tab="t3"><span class="num">03</span><span class="tab-btn__label">Оценить управленческую команду</span><span class="tab-btn__arrow" aria-hidden="true">→</span></button>
+          <button class="tab-btn" role="tab" data-tab="t4"><span class="num">04</span><span class="tab-btn__label">Прокачать команду руководителей</span><span class="tab-btn__arrow" aria-hidden="true">→</span></button>
+        </div>
+
+        <div class="tabs__content">
+        <!-- Таб 01 — Понять, что мешает бизнесу расти -->
+        <div class="tab-panel is-active" id="t1" role="tabpanel">
+          <span class="tab-panel__meta">Чек-ап организации и системы управления</span>
+          <h3 class="title-h3 tab-panel__promise">Увидите, что тормозит рост, и с чего начать.</h3>
+          <div class="tab-grid">
+            <div class="tab-block">
+              <div class="tab-block__label">Когда это нужно</div>
+              <ul class="check-list">
+                <li>Результаты бизнеса хуже плана, а корневая причина непонятна — симптомов много, неясно, за что хвататься</li>
+                <li>Команда сигнализирует, что в организации что-то не так, но картина не складывается</li>
+                <li>Тяжело привлекать сильных людей в команду, и непонятно, что внутри компании это вызывает</li>
+                <li>Решения об изменениях принимаются на ощущениях, без объективной картины</li>
+              </ul>
+            </div>
+            <div class="tab-block">
+              <div class="tab-block__label">Бизнес получает</div>
+              <ul class="arte-list">
+                <li>Объективную картину состояния бизнеса и системы управления по блокам</li>
+                <li>Корневые причины проблем, а не симптомы</li>
+                <li>Приоритеты — какие проблемы сильнее всего бьют по бизнесу</li>
+                <li>Роадмап изменений</li>
+                <li>Воркшоп-презентацию для обсуждения с командой</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tab-actions">
+            <a class="n-button n-button--big n-button--outline" href="https://www.typical.company/knowledgebase/kogda-luchshe-investirovat-v-processy-a-ne-v-obuchenie" target="_blank" rel="noopener">Смотреть кейсы</a>
+            <button class="n-button n-button--big" data-open-modal data-situation="Понять, что мешает бизнесу расти">Оставить заявку</button>
+          </div>
+        </div>
+
+        <!-- Таб 02 — Перевести бизнес из ручного управления в систему -->
+        <div class="tab-panel" id="t2" role="tabpanel">
+          <span class="tab-panel__meta">Разработка системы управления бизнесом</span>
+          <h3 class="title-h3 tab-panel__promise">Бизнес заработает по целям и структуре, а не в ручном режиме.</h3>
+          <div class="tab-grid">
+            <div class="tab-block">
+              <div class="tab-block__label">Когда это нужно</div>
+              <ul class="check-list">
+                <li>Цели бизнеса не достигаются или их нет — компания движется без общего вектора</li>
+                <li>Бизнес живёт в режиме постоянных пожаров, всё работает медленно и хаотично</li>
+                <li>Задачи теряются между функциями: зоны ответственности пересекаются или провисают</li>
+                <li>Результат функций не измеряется — решения по бизнесу принимаются вслепую</li>
+                <li>Чем больше компания растёт, тем больше хаоса вместо управляемости</li>
+              </ul>
+            </div>
+            <div class="tab-block">
+              <div class="tab-block__label">Бизнес получает</div>
+              <ul class="arte-list">
+                <li>Прозрачную оргструктуру с описанием ролей и зон ответственности</li>
+                <li>Цели по каждой функции бизнеса</li>
+                <li>Метрики, по которым виден результат каждой функции</li>
+                <li>Систему, по которой бизнес работает без ручного контроля собственников</li>
+                <li>Воркшоп-презентацию для запуска с командой</li>
+                <li>По запросу — управленческие воркшопы для руководителей</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tab-actions">
+            <a class="n-button n-button--big n-button--outline" href="https://www.typical.company/knowledgebase/hotim-vystroit-kompaniyu-kotoraya-ne-zavisit-ot-sobstvennikov-kak-perestroit-processy-chtoby-oni-ne-meshali-rasti" target="_blank" rel="noopener">Смотреть кейсы</a>
+            <button class="n-button n-button--big" data-open-modal data-situation="Перевести бизнес из ручного управления в систему">Оставить заявку</button>
+          </div>
+        </div>
+
+        <!-- Таб 03 — Оценить управленческую команду -->
+        <div class="tab-panel" id="t3" role="tabpanel">
+          <span class="tab-panel__meta">Оценка управленческой команды</span>
+          <h3 class="title-h3 tab-panel__promise">Поймёте, на кого из руководителей опереться, а кого развивать.</h3>
+          <div class="tab-grid">
+            <div class="tab-block">
+              <div class="tab-block__label">Когда это нужно</div>
+              <ul class="check-list">
+                <li>Управленческая команда не вытягивает задачи бизнеса, а причина неясна</li>
+                <li>Бизнес зависит от нескольких ключевых людей — нет уверенности в скамейке запасных</li>
+                <li>Нужно решить, кому доверить ключевые роли и кого готовить в преемники</li>
+                <li>Непонятно, хватит ли текущей команды для следующего этапа роста бизнеса</li>
+              </ul>
+            </div>
+            <div class="tab-block">
+              <div class="tab-block__label">Бизнес получает</div>
+              <ul class="arte-list">
+                <li>Понимание, на кого из руководителей можно опереться</li>
+                <li>Отчёт по каждому руководителю: сильные стороны и зоны риска в привязке к задачам бизнеса</li>
+                <li>Картину командной динамики — где команда буксует</li>
+                <li>Основу для решений, кого повышать, развивать и готовить в преемники</li>
+                <li>Воркшоп-презентацию и по запросу — индивидуальные PCM-профили</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tab-actions">
+            <a class="n-button n-button--big n-button--outline" href="https://www.typical.company/knowledgebase/ocenka-i-razrabotka-planov-razvitiya-kak-organizovat-process" target="_blank" rel="noopener">Смотреть кейсы</a>
+            <button class="n-button n-button--big" data-open-modal data-situation="Оценить управленческую команду">Оставить заявку</button>
+          </div>
+        </div>
+
+        <!-- Таб 04 — Прокачать команду руководителей -->
+        <div class="tab-panel" id="t4" role="tabpanel">
+          <span class="tab-panel__meta">Программа-интенсив под задачу бизнеса</span>
+          <h3 class="title-h3 tab-panel__promise">Команда руководителей возьмёт ответственность — и бизнес перестанет упираться в собственников.</h3>
+          <div class="tab-grid">
+            <div class="tab-block">
+              <div class="tab-block__label">Когда это нужно</div>
+              <ul class="check-list">
+                <li>Бизнес держится на собственниках — без них ключевые процессы встают, а рост упирается в их время</li>
+                <li>Решения стягиваются наверх: руководители не берут ответственность и ждут указаний</li>
+                <li>Компания растёт быстрее, чем управленческая команда, — управляют по наитию, каждый по-своему</li>
+                <li>Подразделения работают рассинхронно: нет общего управленческого стандарта, договорённости теряются</li>
+                <li>Управленческая зрелость команды отстаёт от задач бизнеса — это тормозит скорость и качество результата</li>
+              </ul>
+            </div>
+            <div class="tab-block">
+              <div class="tab-block__label">Бизнес получает</div>
+              <ul class="arte-list">
+                <li>Управленческую команду, способную вести бизнес без ручного контроля собственников</li>
+                <li>Общий управленческий язык и единые правила работы между подразделениями</li>
+                <li>Управленческие практики, внедрённые в ежедневную работу, а не «знания после курса»</li>
+                <li>Сопровождение внедрения — 3 месяца</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tab-actions">
+            <a class="n-button n-button--big n-button--outline" href="https://www.typical.company/knowledgebase/kak-nauchit-rukovoditeley-rastit-svoih-sotrudnikov-i-pochemu-eto-vazhno" target="_blank" rel="noopener">Смотреть кейсы</a>
+            <button class="n-button n-button--big" data-open-modal data-situation="Прокачать команду руководителей">Оставить заявку</button>
+          </div>
+        </div>
+        </div><!-- /tabs__content -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 3.5 БЕСПЛАТНАЯ 30-МИНУТНАЯ ДИАГНОСТИКА ======== -->
+  <section class="page-section diag-section" id="diag">
+    <div class="n-container">
+      <div class="diag">
+        <div class="diag__copy">
+          <span class="diag__eyebrow">Бесплатно · 30 минут</span>
+          <h2 class="title-h2 diag__title">Не получается сформулировать запрос?</h2>
+          <p class="diag__sub">Расскажите про свою ситуацию — поможем разобраться.</p>
+        </div>
+        <div class="diag__panel">
+          <div class="diag__panel-label">Что вы получите за 30 минут</div>
+          <ul class="diag__list">
+            <li>Поймёте, в чём главная точка роста бизнеса</li>
+            <li>Сформулируете, что именно нужно, чтобы её закрыть</li>
+          </ul>
+          <a class="n-button n-button--big n-button--light" href="https://t.me/igosheva" target="_blank" rel="noopener">Рассказать про задачу</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 4. КЕЙСЫ ======== -->
+  <section class="page-section" id="cases">
+    <div class="n-container">
+      <div class="tf-sec-head">
+        <span class="tf-kicker">Опыт · 14 индустрий</span>
+        <h2 class="title-h2 tf-sec-title">От стартапов до корпораций</h2>
+      </div>
+      <ol class="tf-cases">
+        <li class="tf-case">
+          <div class="tf-case__idx">01</div>
+          <div class="tf-case__body">
+            <div class="tf-case__head">
+              <h3 class="tf-case__name">Resume.io</h3>
+              <span class="tf-case__meta">SaaS · &lt;100 · оргструктура</span>
+            </div>
+            <dl class="tf-case__flow">
+              <div><dt>Было</dt><dd>Основатели тонут в операционке, команда не готова к росту.</dd></div>
+              <div><dt>Сделали</dt><dd>Новую оргструктуру, которая позволила основателям выйти из операционки и подготовила компанию к масштабированию.</dd></div>
+            </dl>
+            <p class="tf-case__result">Команда выросла с 8 до 30+ человек, а компанию купил холдинг Talent.Inc</p>
+            <a class="tf-case__link" href="https://www.typical.company/knowledgebase/kak-izmenit-orgstrukturu-tak-chtoby-komandy-zarabotali-po-principu-samostoyatelnyh-produktov-kompaniya-mogla-legko-masshtabirovatsya-a-osnovateli-vyshli-iz-operacionki" target="_blank" rel="noopener">Читать кейс →</a>
+          </div>
+        </li>
+        <li class="tf-case">
+          <div class="tf-case__idx">02</div>
+          <div class="tf-case__body">
+            <div class="tf-case__head">
+              <h3 class="tf-case__name">12STOREEZ</h3>
+              <span class="tf-case__meta">Retail · &gt;1000 · продуктовый подход</span>
+            </div>
+            <dl class="tf-case__flow">
+              <div><dt>Было</dt><dd>Непонятно, во что вкладываться — в обучение людей или в процессы.</dd></div>
+              <div><dt>Сделали</dt><dd>Аудит продуктового подхода в создании коллекций и план его ускорения через управленческие процессы.</dd></div>
+            </dl>
+            <p class="tf-case__result">Команда согласилась с 99% выводов аудита и получила план внедрения</p>
+            <a class="tf-case__link" href="https://www.typical.company/knowledgebase/kogda-luchshe-investirovat-v-processy-a-ne-v-obuchenie" target="_blank" rel="noopener">Читать кейс →</a>
+          </div>
+        </li>
+        <li class="tf-case">
+          <div class="tf-case__idx">03</div>
+          <div class="tf-case__body">
+            <div class="tf-case__head">
+              <h3 class="tf-case__name">Райффайзенбанк</h3>
+              <span class="tf-case__meta">Finance · &gt;1000 · оценка и развитие</span>
+            </div>
+            <dl class="tf-case__flow">
+              <div><dt>Задача</dt><dd>Выбрать преемников на C-level и спланировать развитие.</dd></div>
+              <div><dt>Сделали</dt><dd>Оценку и персональные планы развития кандидатов-преемников.</dd></div>
+            </dl>
+            <p class="tf-case__result">Закрыли задачу за 1 месяц без отступления от методологии</p>
+            <a class="tf-case__link" href="https://www.typical.company/knowledgebase/ocenka-i-razrabotka-planov-razvitiya-kak-organizovat-process" target="_blank" rel="noopener">Читать кейс →</a>
+          </div>
+        </li>
+      </ol>
+      <div class="tab-actions">
+        <a class="n-button n-button--big n-button--outline" href="https://www.typical.company/cases" target="_blank" rel="noopener">Смотреть все кейсы</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 5. КАК РАБОТАЕТ УСЛУГА ======== -->
+  <section class="page-section">
+    <div class="n-container">
+      <h2 class="title-h2 page-section__title d-mb-40">Как работает услуга</h2>
+      <div class="n-how-it">
+        <!-- БИЗНЕС: статичный шаг -->
+        <div class="n-how-it__static">
+          <div class="n-how-it-card n-how-it-card--static">
+            <div class="n-how-it-card__title text-color-light-blue d-mb-20">БИЗНЕС</div>
+            <div class="n-how-it-card__image-wrapper d-mb-12">
+              <img class="n-how-it-card__image" loading="lazy" alt="" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/699f191540513ad65499f946_Rectangle%20892.webp">
+            </div>
+            <div class="text-m">Описываете контекст и задачу</div>
+          </div>
+        </div>
+
+        <!-- разделитель -->
+        <div class="n-how-it__decor" aria-hidden="true"></div>
+
+        <!-- TYPICAL: шаги -->
+        <div class="n-how-it-slider-wrapper">
+          <div class="text-color-light-blue d-mb-20">TYPICAL</div>
+          <div class="n-how-it-slider">
+            <div class="n-how-it-card">
+              <div class="n-how-it-card__image-wrapper d-mb-12">
+                <img class="n-how-it-card__image" loading="lazy" alt="" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/699f18fc9bbf6364e22bf82a_Rectangle%20893.webp">
+              </div>
+              <div class="text-m">Проводит бесплатную 30-минутную диагностику: находит гипотезу о корневой причине и говорит, нужен ли проект</div>
+            </div>
+            <div class="n-how-it-card">
+              <div class="n-how-it-card__image-wrapper d-mb-12">
+                <img class="n-how-it-card__image" loading="lazy" alt="" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/699f194c8678d02bc4c1ad4b_Rectangle%20894%20(1).webp">
+              </div>
+              <div class="text-m">Строит архитектуру проекта под вашу задачу</div>
+            </div>
+            <div class="n-how-it-card">
+              <div class="n-how-it-card__image-wrapper d-mb-12">
+                <img class="n-how-it-card__image" loading="lazy" alt="" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/699f1902a7b630c32174423e_Rectangle%20895.webp">
+              </div>
+              <div class="text-m">Проводит исследование: интервью, наблюдения, деск-ресёрч</div>
+            </div>
+            <div class="n-how-it-card">
+              <div class="n-how-it-card__image-wrapper d-mb-12">
+                <img class="n-how-it-card__image" loading="lazy" alt="" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/699f1963a5d73e50085bf3bc_Rectangle%20895%20(2).webp">
+              </div>
+              <div class="text-m">Разрабатывает рабочие артефакты</div>
+            </div>
+            <div class="n-how-it-card">
+              <div class="n-how-it-card__image-wrapper d-mb-12">
+                <img class="n-how-it-card__image" loading="lazy" alt="" src="https://cdn.prod.website-files.com/612d23b62060b0d3b0d1c32e/699f1903a2af91079d907968_Rectangle%20895%20(1).webp">
+              </div>
+              <div class="text-m">Внедряет их в работу команды через инструменты, обучение и итерации</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 6. ОТЗЫВЫ ======== -->
+  <section class="page-section" id="reviews">
+    <div class="n-container">
+      <div class="tf-sec-head">
+        <span class="tf-kicker">Отзывы</span>
+        <h2 class="title-h2 tf-sec-title">Что клиенты говорят о работе с нами</h2>
+      </div>
+      <ol class="tf-reviews">
+
+        <!-- Отзыв 1 — КОР -->
+        <li class="tf-review">
+          <p class="tf-review__quote">«За три месяца решили проблемы, которые не могли решить 2–3 года»</p>
+          <div class="tf-review__service">Система управления бизнесом</div>
+          <div class="tf-review__foot">
+            <div class="tf-review__photo">
+              <img loading="lazy" src="assets/reviews/elena-korablina.webp" alt="Елена Кораблина">
+            </div>
+            <div class="tf-review__person">
+              <span class="tf-review__name">Елена Кораблина</span>
+              <span class="tf-review__role">со-основатель и COO</span>
+            </div>
+          </div>
+          <a class="tf-review__link" href="https://www.typical.company/reviews#w-tabs-0-data-w-pane-1" target="_blank" rel="noopener">Читать полностью →</a>
+        </li>
+
+        <!-- Отзыв 2 — АТОМ -->
+        <li class="tf-review">
+          <p class="tf-review__quote">«Теперь у меня есть стратегия, цели, структура и уверенность, что мы идём в правильном направлении»</p>
+          <div class="tf-review__service">Система управления и найма</div>
+          <div class="tf-review__foot">
+            <div class="tf-review__photo"><img loading="lazy" src="assets/reviews/anton-hristenko.webp" alt="Антон Христенко"></div>
+            <div class="tf-review__person">
+              <span class="tf-review__name">Антон Христенко</span>
+              <span class="tf-review__role">руководитель по развитию бизнеса (CBDO)</span>
+            </div>
+          </div>
+          <a class="tf-review__link" href="https://www.typical.company/reviews#w-tabs-0-data-w-pane-1" target="_blank" rel="noopener">Читать полностью →</a>
+        </li>
+
+        <!-- Отзыв 3 — Restik -->
+        <li class="tf-review">
+          <p class="tf-review__quote">«Перестал избегать управленческую работу»</p>
+          <div class="tf-review__service">Роль руководителя и зоны ответственности</div>
+          <div class="tf-review__foot">
+            <div class="tf-review__photo"><img loading="lazy" src="assets/reviews/oleg-suzhaev.webp" alt="Олег Сужаев"></div>
+            <div class="tf-review__person">
+              <span class="tf-review__name">Олег Сужаев</span>
+              <span class="tf-review__role">со-основатель и CEO</span>
+            </div>
+          </div>
+          <a class="tf-review__link" href="https://www.typical.company/reviews#w-tabs-0-data-w-pane-1" target="_blank" rel="noopener">Читать полностью →</a>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- ======== 7. ПОЧЕМУ НАМ МОЖНО ДОВЕРЯТЬ ======== -->
+  <section class="page-section bg-color-gray">
+    <div class="n-container">
+      <div class="mission-grid">
+        <div>
+          <h2 class="title-h2 d-mb-40">Почему нам можно доверять</h2>
+          <div class="mission-points">
+            <p class="mission-point"><b>Команда</b> — специалисты в менеджменте, управлении проектами и командами, разработке продуктов. Наш опыт охватывает B2С и B2B-сегменты и такие отрасли, как финансы, EdTech, разработка SaaS-продуктов, О2О-бизнесы и другие.</p>
+            <p class="mission-point"><b>Наша миссия</b> — рост прибыли на сотрудника через развитие лидеров и управленцев.</p>
+            <p class="mission-point"><b>Адаптируем работу под реалии вашего бизнеса</b> — разбираем вашу индустрию, инструменты, которые вы уже используете, и задачи конкретных людей в команде. Никаких «типовых решений».</p>
+            <p class="mission-point"><b>Мы отвечаем за результат целиком</b> — от проектирования до внедрения, а не просто «даём советы».</p>
+          </div>
+        </div>
+        <div class="mission-cta-box">
+          <h3 class="title-h3 d-mb-20">Расскажите, что происходит в вашей компании — вместе определим, с чего начать.</h3>
+          <button class="n-button n-button--big" data-open-modal>Оставить заявку</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======== ФУТЕР ======== -->
+<footer class="footer">
+  <div class="n-container">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <div class="footer__logo">
+          <svg viewBox="0 0 194 31" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M52.5561 25.8372C52.9824 25.5658 53.4039 25.2898 53.816 24.9857L62.4361 18.6601V30.1229C62.9333 30.1697 63.431 30.1977 63.9374 30.1977C64.4921 30.1977 65.0412 30.1697 65.5812 30.1135V18.618C69.0147 21.1398 72.4488 23.6569 75.8829 26.1788C76.2331 25.7904 76.6029 25.3413 76.9672 24.8359C77.261 24.4242 77.5212 24.0265 77.7441 23.6522C74.7698 21.4673 71.7906 19.287 68.8163 17.102H79.8992C79.9512 16.5874 79.9794 16.0681 79.9794 15.5394C79.9794 15.0107 79.9512 14.4914 79.8992 13.9767H68.8163L77.73 7.43586C77.46 6.98671 77.138 6.50013 76.7639 5.99951C76.4608 5.59713 76.1572 5.23687 75.8688 4.91404L65.5861 12.4608V0.983936C65.0461 0.927791 64.4963 0.899719 63.9423 0.899719C63.4353 0.899719 62.9333 0.927791 62.441 0.974578V12.4233L53.8208 6.09775C53.4086 5.79364 52.9871 5.51759 52.5609 5.24623C49.3496 3.21568 46.4367 2.45772 45.4279 2.21444C44.0828 1.89161 42.2308 1.57813 40 1.58281C40 2.62616 40 3.67419 40 4.71754C43.5002 4.70818 47.0051 5.61117 50.15 7.44523C50.4058 7.59492 50.6616 7.74933 50.9126 7.91311C51.2631 8.13768 51.6136 8.36225 51.9499 8.61492L59.2628 13.9814H47.9003V17.1068H59.2628L51.9499 22.4732C51.6088 22.7212 51.2583 22.9505 50.9126 23.175C50.6616 23.3341 50.4058 23.4931 50.15 23.6429C47.0051 25.4769 43.5002 26.3799 40 26.3706V29.5194C44.4001 29.5146 48.7339 28.2841 52.5561 25.8372Z" fill="currentColor"/><path d="M27.4236 25.8372C26.9973 25.5658 26.5758 25.2898 26.1637 24.9857L17.5435 18.6601V30.1276C17.0462 30.1743 16.5489 30.2024 16.0421 30.2024C15.488 30.2024 14.9385 30.1743 14.3986 30.1182V18.618C10.9647 21.1398 7.53086 23.6569 4.09696 26.1788C3.74647 25.7904 3.37703 25.3413 3.01233 24.8359C2.71867 24.4242 2.45817 24.0265 2.23557 23.6522C5.21001 21.4673 8.1892 19.287 11.1636 17.102H0.0805181C0.0284182 16.592 0 16.0727 0 15.5441C0 15.0153 0.0284182 14.496 0.0805181 13.9814H11.1636L2.24977 7.43586C2.51975 6.98671 2.84182 6.50012 3.21599 5.9995C3.51912 5.59713 3.82225 5.23687 4.11117 4.91404L14.3938 12.4608V0.983936C14.9385 0.927791 15.488 0.899719 16.0421 0.899719C16.5489 0.899719 17.051 0.927791 17.5435 0.974578V12.4233L26.1637 6.09775C26.5758 5.79364 26.9973 5.5176 27.4236 5.24623C30.6348 3.21568 33.5477 2.45772 34.5566 2.21444C35.9017 1.89161 37.7536 1.57813 39.9844 1.58281C39.9844 2.62616 39.9844 3.67419 39.9844 4.71754C36.489 4.71286 32.9841 5.61117 29.8391 7.44523C29.5834 7.59492 29.3276 7.74933 29.0765 7.91311C28.7261 8.13768 28.3756 8.36225 28.0393 8.61492L20.7216 13.9814H32.0841V17.1068H20.7216L28.0346 22.4732C28.3756 22.7212 28.7261 22.9505 29.0718 23.175C29.3229 23.3341 29.5786 23.4932 29.8344 23.6429C32.9794 25.4769 36.4843 26.3799 39.9844 26.3706V29.5193C35.5796 29.5146 31.2459 28.2842 27.4236 25.8372Z" fill="currentColor"/><path d="M95.4129 16.5736H90.3594V13.977H103.73V16.5736H98.6528V30.2167H95.4129V16.5736Z" fill="currentColor"/><path d="M108.258 13.9764L112.085 20.7651L115.983 13.9764H119.678L113.624 23.9467V30.2208H110.385V23.9045L104.469 13.981H108.258V13.9764Z" fill="currentColor"/><path d="M126.88 13.9769C130.257 13.9769 134.108 14.4494 134.108 19.3527C134.108 23.498 130.754 24.5039 126.97 24.5039H124.498V30.2166H121.258V13.9769H126.88ZM124.502 16.4846V22.0195H127.178C129.196 22.0195 130.783 21.5282 130.783 19.3761C130.783 16.7092 128.722 16.4846 126.956 16.4846H124.502Z" fill="currentColor"/><path d="M164.359 24.8877C163.928 28.1581 161.186 30.5114 157.245 30.5114C152.371 30.5114 149.562 27.1942 149.562 22.0196C149.562 16.8871 152.556 13.6868 157.335 13.6868C161.186 13.6868 163.819 15.8578 164.359 19.2452H161.276C160.665 16.9806 159.121 16.2414 157.312 16.2414C154.82 16.2414 152.916 18.2579 152.916 22.0196C152.916 25.8936 154.82 27.9569 157.198 27.9569C159.145 27.9569 160.755 27.0819 161.276 24.8877H164.359Z" fill="currentColor"/><path d="M171.01 13.9769H174.273L180.416 30.2213H176.902L175.746 26.9275H169.357L168.201 30.2213H164.891L171.01 13.9769ZM170.285 24.3027H174.818L172.554 17.8929L170.285 24.3027Z" fill="currentColor"/><path d="M185.474 27.6195H193.474V30.2161H182.234V13.9764H185.474V27.6195Z" fill="currentColor"/><path d="M148.083 27.6106H143.464V16.5735H148.083V13.9769H135.578V16.5735H140.196V27.6106H135.578V30.2072H148.083V27.6106Z" fill="currentColor"/></svg>
+        </div>
+        <p style="color:var(--muted);font-size:.95rem;max-width:22ch">Создаём компании с высокой прибылью на сотрудника.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Меню</h4>
+        <a href="#">Бизнесу</a>
+        <a href="#">Руководителям</a>
+        <a href="https://www.typical.company/cases">Опыт и кейсы</a>
+        <a href="#">Отзывы</a>
+        <a href="#">Исследования и публикации</a>
+        <a href="https://www.typical.company/knowledgebase">База знаний</a>
+      </div>
+      <div class="footer__col">
+        <h4>Информация</h4>
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Публичная оферта</a>
+        <a href="mailto:hello@typical.company">hello@typical.company</a>
+      </div>
+      <div class="footer__col">
+        <h4>Рассылка</h4>
+        <p style="color:var(--muted);font-size:.95rem">Исследования и материалы для руководителей.</p>
+        <form class="subscribe" data-subscribe>
+          <input type="email" placeholder="E-mail" required>
+          <button type="submit" aria-label="Подписаться">→</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>TYPICAL, 2026 ©</span>
+      <span>Создаём сильных руководителей</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ======== МОДАЛЬНАЯ ФОРМА ======== -->
+<div class="modal" id="lead-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal__overlay" data-close-modal></div>
+  <div class="modal__dialog">
+    <button class="modal__close" data-close-modal aria-label="Закрыть">✕</button>
+    <div data-form-view>
+      <h3 class="form-title" id="modal-title">Начнём разговор?</h3>
+      <form id="lead-form" class="form w-clearfix" method="post" novalidate>
+        <input class="text-field" type="text" name="fullname" placeholder="Фамилия и Имя" pattern="[А-Яа-яЁё]+[А-Яа-яЁё\s-]*" title="Введите фамилию и имя кириллицей" required>
+        <input class="text-field" type="text" name="company" placeholder="Название компании" required>
+        <div class="form-row">
+          <input class="text-field" type="text" name="role" placeholder="Должность / роль">
+          <input class="text-field" type="text" name="company_size" placeholder="Размер компании, человек">
+        </div>
+        <select class="text-field select-field" name="service" required>
+          <option value="" disabled selected>Выберите услугу</option>
+          <option>Понять, что мешает бизнесу расти</option>
+          <option>Перевести бизнес из ручного управления в систему</option>
+          <option>Оценить управленческую команду</option>
+          <option>Прокачать команду руководителей</option>
+        </select>
+        <div class="form-row">
+          <input class="text-field" type="text" name="telegram" placeholder="Ваш ник в telegram">
+          <input class="text-field" type="email" name="email" placeholder="Ваш Email" required>
+        </div>
+        <div class="div-block">
+          <button type="submit" class="n-button n-button--big submit-button">Отправить</button>
+          <p class="form-info-txt">Напишите напрямую: <a href="https://t.me/igosheva" class="form-policy-link" target="_blank" rel="noopener">t.me/igosheva</a></p>
+          <p class="form-info-txt">Нажимая кнопку «Отправить», вы соглашаетесь с <a href="https://www.typical.company/" class="form-policy-link" target="_blank" rel="noopener">политикой обработки данных</a> и <a href="https://www.typical.company/" class="form-policy-link" target="_blank" rel="noopener">публичной офертой</a></p>
+        </div>
+      </form>
+    </div>
+    <div class="form-success" data-success-view hidden>
+      <div class="ok">✓</div>
+      <h3 class="title-h3 d-mb-12">Спасибо! Заявка отправлена</h3>
+      <p class="form-info-txt" style="text-align:center">Свяжемся с вами в ближайшее время.</p>
+    </div>
+  </div>
+</div>
+
+<script src="assets/project.js"></script>
+</body>
+</html>

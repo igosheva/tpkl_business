@@ -1,0 +1,138 @@
+/* TYPICAL — дизайн-токены и база.
+   Все размеры заданы в rem; корневой шрифт fluid от базы 1440px,
+   что воспроизводит масштабирование боевого сайта.
+   1rem = 16px при ширине 1440px. */
+
+:root {
+  /* Цвет — рабочее ядро */
+  --ink: #1F2630;            /* dark-blue: текст, тёмные блоки, футер, primary-btn */
+  --white: #FFFFFF;
+  --grey: #F2F2F2;           /* фон секций / карточек / тегов */
+  --muted: #8F959D;          /* вторичный текст, подписи */
+
+  /* Цвет — акценты (дозированно) */
+  --coral: #FF743D;
+  --green: #0E5146;
+  --green-bright: #387832;
+  --violet: #343657;
+  --lavender: #D3E6FF;
+  --purple: #DBDCFF;
+  --purple-light: #E7E7FF;
+  --violet-tone: #F0F1FF;
+  --grey-blue: #C8D5EE;
+  --mint: #D9EFED;
+  --warning: #FF6060;
+
+  /* Типографика */
+  --font-book:    "Suisseintl book", sans-serif;
+  --font-regular: "Suisseintl Regular", sans-serif;
+  --font-medium:  "Suisseintl Medium", sans-serif;
+  --font-bold:    "Suisseintl bold", sans-serif;
+
+  /* Скругление */
+  --radius: 0.3125rem; /* 5px @1440 */
+
+  /* Шкала отступов (px @1440) */
+  --space-12: 0.75rem;
+  --space-20: 1.25rem;
+  --space-40: 2.5rem;
+  --space-section: 3.75rem; /* 60px — вертикальный ритм секций */
+  --gap-grid: 2.5rem;       /* 40px */
+
+  /* Контейнер */
+  --container: 82vw;
+}
+
+/* Fluid root: 16px @1440, пропорционально вьюпорту (как на боевом сайте).
+   clamp удерживает читаемость на узких и широких экранах. */
+html {
+  font-size: clamp(12px, 1.111vw, 18px);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-regular);
+  font-size: 1.125rem;          /* ~18px */
+  line-height: 1.4;
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Типографика */
+.title-h1 { font-family: var(--font-book); font-size: 3.625rem; line-height: 1.0;  letter-spacing: -0.02em; margin: 0; }   /* 58px */
+.title-h2 { font-family: var(--font-regular); font-size: 3rem;  line-height: 1.04; letter-spacing: -0.02em; margin: 0; }   /* 48px */
+.title-h3 { font-family: var(--font-book); font-size: 1.5rem;   line-height: 1.16; letter-spacing: -0.01em; margin: 0; }   /* 24px */
+.title-h4, .text-md { font-family: var(--font-regular); font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.01em; margin: 0; }
+.text-big { font-size: 1.25rem; line-height: 1.3; }
+.text-color-light-blue, .muted { color: var(--muted); }
+
+/* Лейаут */
+.n-container { width: var(--container); max-width: 1180px; margin-inline: auto; }
+.n-grid-col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-grid); }
+
+/* Секции */
+.page-section { padding-block: var(--space-section); }
+.bg-color-gray { background: var(--grey); }
+.bg-color-white { background: var(--white); }
+.is--dark-blue { background: var(--ink); color: var(--white); }
+.page-section__title { margin-bottom: var(--space-40); }
+
+/* Отступы-утилиты */
+.d-mb-12 { margin-bottom: var(--space-12); }
+.d-mb-20 { margin-bottom: var(--space-20); }
+.d-mb-40 { margin-bottom: var(--space-40); }
+.mt-auto { margin-top: auto; }
+
+/* Кнопки */
+.n-button {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-book); font-size: 1.125rem; line-height: 1;
+  color: var(--white); background: var(--ink);
+  border: 0; border-radius: var(--radius);
+  padding: 1.0625rem 1.25rem 0.875rem; /* 17/20/14 — оптически выше сверху */
+  text-decoration: none; cursor: pointer; transition: opacity .2s;
+}
+.n-button:hover { opacity: .88; }
+.n-button--big { font-size: 1.125rem; }
+.n-button--outline {
+  background: transparent; color: var(--ink);
+  border: 1px dashed #000;
+}
+
+/* Тег / пилюля */
+.chip {
+  display: inline-flex; align-items: center;
+  background: var(--grey); color: var(--ink);
+  font-family: var(--font-regular); font-size: 1rem;
+  border-radius: var(--radius); padding: 0.5rem 0.6875rem 0.4375rem;
+}
+
+/* Карточка */
+.n-card {
+  background: var(--white); border-radius: var(--radius);
+  padding: var(--space-20); display: flex; flex-direction: column;
+}
+.n-card.bg-color-gray { background: var(--grey); }
+.n-card__image-wrapper { border-radius: 0; overflow: hidden; }
+
+/* Хедер */
+.page-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  background: var(--white); padding-block: 1.75rem; /* 28px */
+}
+.page-header__container { width: var(--container); margin-inline: auto;
+  display: flex; align-items: center; justify-content: space-between; }
+.main-nav__link { color: var(--ink); text-decoration: none; font-size: 1rem; }
+.main-nav__link.w--current { font-family: var(--font-medium); }
+
+/* Футер */
+._23__footer { background: var(--ink); color: var(--white); padding: var(--space-section) 0; }
+._23__footer-link { color: var(--grey); text-decoration: none; font-size: 0.9375rem; }
+
+/* Адаптив (Webflow-брейкпоинты) */
+@media (max-width: 991px) { .n-grid-col-2 { gap: var(--space-20); } }
+@media (max-width: 767px) { .n-grid-col-2 { grid-template-columns: 1fr; }
+  .title-h1 { font-size: 2.5rem; } .title-h2 { font-size: 2rem; } }
